@@ -36,7 +36,7 @@ const UserHeader = () => {
           <ul className="nav__list">
             <li className="nav__item">
               <NavLink to="/Dashboard" className="nav__link">
-                <i className="fa-solid fa-house nav__icon"></i>
+                <i className="fa-solid fa-calendar-check nav__icon"></i>
                 <span className="nav__name">Tasks</span>
               </NavLink>
             </li>
@@ -63,8 +63,8 @@ const UserHeader = () => {
               </li> */}
 
             <li className="nav__item">
-            <NavLink to="/Dashboard/Profile" className="nav__link">
-                <i className="fa-regular fa-comment-dots nav__icon"></i>
+              <NavLink to="/Dashboard/Profile" className="nav__link">
+                <i className="fa-regular fa-user nav__icon"></i>
                 <span className="nav__name">Profile</span>
               </NavLink>
             </li>
@@ -72,16 +72,16 @@ const UserHeader = () => {
         </div>
 
         <ul>
-                <li className="nav__item">
-                <NavLink onClick={logout} className="nav__link">
+          <li className="nav__item">
+            <NavLink onClick={logout} className="nav__link">
               <i className="fa-solid fa-lock nav__icon"></i>
               <span className="nav__name">Logout</span>
             </NavLink>
-              {Object.keys(userData).length > 0 ? (
-                <img className="img" src={userData.profileImage} alt="" />
-              ) : (
-                <h1></h1> // Display loading message while waiting for user data
-              )}
+            {Object.keys(userData).length > 0 ? (
+              <img className="img" src={userData.profileImage} alt="" />
+            ) : (
+              <h1></h1> // Display loading message while waiting for user data
+            )}
           </li>
         </ul>
       </nav>

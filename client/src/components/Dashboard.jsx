@@ -31,7 +31,7 @@ const Dashboard = () => {
         <div className="dash_bgbox">
           <div className="dash_header">
             {Object?.keys(userData).length > 0 ? (
-              <h1>Hey, {userData.displayName} </h1>
+              <h1>Hey, {userData.firstName}</h1>
             ) : (
               <h1></h1> // Display loading message while waiting for user data
             )}

@@ -335,7 +335,6 @@ section {
   transition: 0.2s linear;
   border: 1px solid var(--dark);
   font-size: 14px;
-  text-transform: uppercase;
   letter-spacing: 2px;
 }
 

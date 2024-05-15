@@ -30,6 +30,7 @@ passport.use(
           googleId: profile.id,
           displayName: profile.displayName,
           firstName: profile.name.givenName,
+          email: profile.emails[0].value,
           lastName: profile.name.familyName,
           profileImage: profile.photos[0].value,
         };
@@ -107,6 +108,22 @@ router.get('/logout', (req, res, next) => {
     res.redirect("http://localhost:5173");
   })
 })
+
+
+
+
+// Add this route to handle profile updates
+router.post("/update-profile", async (req, res) => {
+  try {
+    const updatedUserData = req.body;
+    // Update user profile in the database
+    await User.findByIdAndUpdate(updatedUserData._id, updatedUserData);
+    res.sendStatus(200); // Send a success response
+  } catch (error) {
+    console.error("Error updating profile:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
 
 
 
