@@ -52,7 +52,7 @@ const Profile = () => {
             <ul className="breadcrumb">
               <li className="breadcrumb-item">
                 <NavLink to="/Dashboard" className="navigate">
-                  Dashboard /{" "}
+                  Tasks /{" "}
                 </NavLink>{" "}
                 Profile
               </li>
@@ -66,7 +66,7 @@ const Profile = () => {
                   className="profile_img"
                   src={userData.profileImage}
                   alt=""
-                />
+                  />
                 <form onSubmit={handleFormSubmit}>
                   <label className="label">
                     <div className="name_sec">

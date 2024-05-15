@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import DashHeader from "./DashHeader";
 import axios from "axios";
-import "../App.css";
+import "../index.css";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -35,33 +35,37 @@ const Dashboard = () => {
             ) : (
               <h1></h1> // Display loading message while waiting for user data
             )}
+          </div>
 
-            <form
-              action="/Dashboard/add"
-              method="POST"
-              className="position-relative"
-            >
-              <button type="submit" className="button">
-                <span className="button__text">New Note</span>
-                <span className="button__icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    viewBox="0 0 24 24"
-                    strokeWidth="2"
-                    strokeLinejoin="round"
-                    strokeLinecap="round"
-                    stroke="currentColor"
-                    height="24"
-                    fill="none"
-                    className="svg"
-                  >
-                    <line y2="19" y1="5" x2="12" x1="12"></line>
-                    <line y2="12" y1="12" x2="19" x1="5"></line>
-                  </svg>
-                </span>
-              </button>
-            </form>
+          <div className="profile_header">
+            <label className="label">
+              <div className="create_sec">
+                <input
+                  type="text"
+                  className="input_dash"
+                  placeholder="Write new task !"
+                  autoComplete="off"
+                />
+
+                <button className="create">
+                  <span className="create_span">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                    >
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path
+                        fill="currentColor"
+                        d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"
+                      ></path>
+                    </svg>
+                    Create
+                  </span>
+                </button>
+              </div>
+            </label>
           </div>
         </div>
       </section>

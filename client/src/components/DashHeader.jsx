@@ -62,12 +62,12 @@ const UserHeader = () => {
                 </a>
               </li> */}
 
-            <li className="nav__item">
+            {/* <li className="nav__item">
               <NavLink to="/Dashboard/Profile" className="nav__link">
                 <i className="fa-regular fa-user nav__icon"></i>
                 <span className="nav__name">Profile</span>
               </NavLink>
-            </li>
+            </li> */}
           </ul>
         </div>
 
@@ -78,7 +78,13 @@ const UserHeader = () => {
               <span className="nav__name">Logout</span>
             </NavLink>
             {Object.keys(userData).length > 0 ? (
+               <NavLink to="/Dashboard/Profile">
+
+               <div className="prof_border">
+
               <img className="img" src={userData.profileImage} alt="" />
+               </div>
+               </NavLink>
             ) : (
               <h1></h1> // Display loading message while waiting for user data
             )}
