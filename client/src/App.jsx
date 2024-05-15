@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard'
 import Error from './components/Error'
 import Home from './components/Home'
 import Login from './components/Login'
+import Profile from './components/Profile'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Route path='/' element={<Home />} />
       <Route path='/login' element={<Login />} />
       <Route path='/dashboard' element={<Dashboard />} />
+      <Route path='/dashboard/profile' element={<Profile />} />
       <Route path='*' element={<Error />} />
     </Routes>
     </>

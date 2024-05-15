@@ -33,28 +33,28 @@ const Dashboard = () => {
             {Object?.keys(userData).length > 0 ? (
               <h1>Hey, {userData.displayName} </h1>
             ) : (
-              <h1>User Not found</h1> // Display loading message while waiting for user data
+              <h1></h1> // Display loading message while waiting for user data
             )}
 
             <form
               action="/Dashboard/add"
               method="POST"
-              class="position-relative"
+              className="position-relative"
             >
-              <button type="submit" class="button">
-                <span class="button__text">New Note</span>
-                <span class="button__icon">
+              <button type="submit" className="button">
+                <span className="button__text">New Note</span>
+                <span className="button__icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke-linejoin="round"
-                    stroke-linecap="round"
+                    strokeWidth="2"
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
                     stroke="currentColor"
                     height="24"
                     fill="none"
-                    class="svg"
+                    className="svg"
                   >
                     <line y2="19" y1="5" x2="12" x1="12"></line>
                     <line y2="12" y1="12" x2="19" x1="5"></line>
