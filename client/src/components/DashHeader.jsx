@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from "react-router-dom";
-
+import axios from "axios"
 import '../App.css'
 
 
-const Header = () => {
+const UserHeader = () => {
 
-  const loginWithGoogle = () => {
-    window.open('http://localhost:3000/auth/google/callback', '_self');
+  const logout = () => {
+    window.open("http://localhost:3000/logout", "_self")
   }
 
   return (
@@ -18,13 +18,13 @@ const Header = () => {
         <div className="nav__menu" id="nav-menu">
           <ul className="nav__list">
             <li className="nav__item">
-            <NavLink to='/' className="nav__link" >
+            <NavLink to='/Dashboard' className="nav__link" >
                 <i className="fa-solid fa-house nav__icon"></i>
-                <span className="nav__name">Home</span>
+                <span className="nav__name">Tasks</span>
                 </NavLink>
             </li>
 
-            <li className="nav__item">
+            {/* <li className="nav__item">
               <a href="#about" className="nav__link">
                 <i className="fa-brands fa-slack nav__icon"></i>
                 <span className="nav__name">About</span>
@@ -43,12 +43,12 @@ const Header = () => {
                 <i className="fa-solid fa-city nav__icon"></i>
                 <span className="nav__name">Companies</span>
               </a>
-            </li>
+            </li> */}
 
             <li className="nav__item">
-              <a href="#contactme" className="nav__link">
+              <a href="#" className="nav__link">
                 <i className="fa-regular fa-comment-dots nav__icon"></i>
-                <span className="nav__name">Contactme</span>
+                <span className="nav__name">Profile</span>
               </a>
             </li>
           </ul>
@@ -56,10 +56,10 @@ const Header = () => {
 
         <ul>
           <li className="nav__item">
-          <NavLink onClick={loginWithGoogle} className="nav__link" >
+          <NavLink onClick={logout} className="nav__link" >
 
               <i className="fa-solid fa-lock nav__icon"></i>
-              <span className="nav__name">Login / Signup</span>
+              <span className="nav__name">Logout</span>
             </NavLink>
           </li>
         </ul>
@@ -68,4 +68,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default UserHeader

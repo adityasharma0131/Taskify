@@ -1,9 +1,11 @@
 import React from 'react'
+import UserHeader from './UserHeader'
 import '../App.css'
 
 const Home = () => {
   return (
     <>
+    <UserHeader />
      <section className="section__height" id="home">
         <div className="bgbox">
           <div className="card__container">
