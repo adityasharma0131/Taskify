@@ -564,6 +564,44 @@ section {
   }
 }
 
+
+.checkContainer {
+  width: 18px;
+  height: 18px;
+  background: none;
+  border: none;
+}
+
+.FaCheckSquare{
+
+  color: #45a049;
+}
+
+.FaSquare{
+  color: #191919;
+}
+
+
+.deleteButton {
+  background: none;
+  border: none;
+  color: #191919;
+}
+
+
+.deleteButton:hover {
+  color: #ff4545;
+}
+
+
+
+
+
+
+
+
+
+
 /* Dashboard Section */
 
 .dash_bgbox {

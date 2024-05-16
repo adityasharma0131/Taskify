@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaCheckSquare, FaSquare } from "react-icons/fa";
+import { RxCross2 } from "react-icons/rx";
 import DashHeader from "./DashHeader";
 import axios from "axios";
 import "../index.css";
@@ -55,6 +57,28 @@ const Dashboard = () => {
     }
   };
 
+  const toggleTaskStatus = async (taskId, currentStatus) => {
+    try {
+      const newStatus = currentStatus === "true" ? "false" : "true";
+      await axios.post("http://localhost:3000/tasks/update-status", {
+        taskId,
+        newStatus,
+      });
+      getTasks(userData._id); // Refresh tasks after status update
+    } catch (error) {
+      console.error("Error toggling task status:", error);
+    }
+  };
+
+  const deleteTask = async (taskId) => {
+    try {
+      await axios.delete(`http://localhost:3000/tasks/${taskId}`);
+      getTasks(userData._id); // Refresh tasks after deletion
+    } catch (error) {
+      console.error("Error deleting task:", error);
+    }
+  };
+
   return (
     <>
       <DashHeader />
@@ -103,7 +127,15 @@ const Dashboard = () => {
             <div className="num_sec">
               <div>
                 <p>
-                  Created task <span>{tasks.length}</span>{" "}
+                  Created tasks <span>{tasks.length}</span>
+                </p>
+              </div>
+              <div>
+                <p>
+                  Completed tasks{" "}
+                  <span>
+                    {tasks.filter((task) => task.status === "true").length}
+                  </span>
                 </p>
               </div>
             </div>
@@ -112,10 +144,24 @@ const Dashboard = () => {
             <div className="task_bar">
               <ul>
                 {tasks.map((task) => (
-                  <li className="task_list" key={task._id}>
-                    <button className="check_button"></button>
+                  <li className="task_list" key={task._id} draggable>
+                    <button
+                      className="checkContainer"
+                      onClick={() => toggleTaskStatus(task._id, task.status)}
+                    >
+                      {task.status === "true" ? (
+                        <FaCheckSquare className="FaCheckSquare" />
+                      ) : (
+                        <FaSquare className="FaSquare" />
+                      )}
+                    </button>
                     <p>{task.task}</p>
-                    <button className="delete_button">x</button>
+                    <button
+                      className="deleteButton"
+                      onClick={() => deleteTask(task._id)}
+                    >
+                      <RxCross2 />
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -128,3 +174,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
