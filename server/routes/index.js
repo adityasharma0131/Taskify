@@ -149,5 +149,33 @@ router.get("/tasks/:userId", async (req, res) => {
 });
 
 
+router.post("/tasks/update-status", async (req, res) => {
+  try {
+    const { taskId, newStatus } = req.body;
+
+    // Update task status in the database
+    await Task.findByIdAndUpdate(taskId, { status: newStatus });
+
+    res.sendStatus(200); // Send a success response
+  } catch (error) {
+    console.error("Error updating task status:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+
+router.delete("/tasks/:taskId", async (req, res) => {
+  try {
+    const taskId = req.params.taskId;
+    // Delete the task from the database
+    await Task.findByIdAndDelete(taskId);
+    res.sendStatus(200); // Send a success response
+  } catch (error) {
+    console.error("Error deleting task:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+
 // Export the router
 module.exports = router;
