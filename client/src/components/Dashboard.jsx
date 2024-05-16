@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DashHeader from "./DashHeader";
 import axios from "axios";
 import "../index.css";
@@ -8,6 +8,8 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const [userData, setUserData] = useState({});
+  const [inputValue, setInputValue] = useState("");
+  const [tasks, setTasks] = useState([]);
 
   const getUser = async () => {
     try {
@@ -15,14 +17,43 @@ const Dashboard = () => {
         withCredentials: true,
       });
       setUserData(response.data.user);
+      getTasks(response.data.user._id); // Fetch tasks associated with the user
     } catch (error) {
-      navigate("*");
+      navigate("*"); // Navigate to error page
+    }
+  };
+
+  const getTasks = async (userId) => {
+    try {
+      const response = await axios.get(`http://localhost:3000/tasks/${userId}`);
+      console.log("Fetched tasks:", response.data); // Log fetched tasks
+      setTasks(response.data);
+    } catch (error) {
+      console.error("Error fetching tasks:", error);
     }
   };
 
   useEffect(() => {
     getUser();
-  }, []); // Passing an empty array as the second argument to useEffect ensures that it only runs once after the initial render
+  }, []);
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post("http://localhost:3000/tasks", {
+        task: inputValue,
+        id: userData._id,
+      });
+      console.log("Task submitted:", response.data);
+      setInputValue("");
+      getTasks(userData._id); // After submitting task, fetch updated task list
+    } catch (error) {
+      console.error("Error submitting task:", error);
+    }
+  };
 
   return (
     <>
@@ -30,10 +61,10 @@ const Dashboard = () => {
       <section className="section__height" id="home">
         <div className="dash_bgbox">
           <div className="dash_header">
-            {Object?.keys(userData).length > 0 ? (
+            {Object.keys(userData).length > 0 ? (
               <h1>Hey, {userData.firstName}</h1>
             ) : (
-              <h1></h1> // Display loading message while waiting for user data
+              <h1>Loading...</h1>
             )}
           </div>
 
@@ -43,11 +74,13 @@ const Dashboard = () => {
                 <input
                   type="text"
                   className="input_dash"
+                  value={inputValue}
+                  onChange={handleChange}
                   placeholder="Write new task !"
                   autoComplete="off"
                 />
 
-                <button className="create">
+                <button className="create" onClick={handleSubmit}>
                   <span className="create_span">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -66,6 +99,27 @@ const Dashboard = () => {
                 </button>
               </div>
             </label>
+
+            <div className="num_sec">
+              <div>
+                <p>
+                  Created task <span>{tasks.length}</span>{" "}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="tasks_coll">
+            <div className="task_bar">
+              <ul>
+                {tasks.map((task) => (
+                  <li className="task_list" key={task._id}>
+                    <button className="check_button"></button>
+                    <p>{task.task}</p>
+                    <button className="delete_button">x</button>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>

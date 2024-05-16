@@ -5,8 +5,13 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const mongoose = require("mongoose");
 const User = require("./DB");
+const Task = require("./Todo");
 
 // Initialize Express application
+const app = express();
+
+// Middleware to parse JSON request bodies
+app.use(express.json());
 
 // Connect to MongoDB with Mongoose
 mongoose.connect("mongodb+srv://adityasharma0431:anant99@cluster0.vkam6md.mongodb.net/", {
@@ -18,13 +23,13 @@ mongoose.connect("mongodb+srv://adityasharma0431:anant99@cluster0.vkam6md.mongod
 passport.use(
   new GoogleStrategy(
     {
-      clientID:"652686754259-567cljdto8o961jl4k7l8bvataogq0cs.apps.googleusercontent.com",
-      clientSecret:"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",
+      clientID: "652686754259-567cljdto8o961jl4k7l8bvataogq0cs.apps.googleusercontent.com",
+      clientSecret: "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",
       callbackURL: "/auth/google/callback",
       scope: ["profile", "email"]
     },
     async function (accessToken, refreshToken, profile, done) {
-      console.log(profile)
+      console.log(profile);
       try {
         const newUser = {
           googleId: profile.id,
@@ -49,8 +54,6 @@ passport.use(
     }
   )
 );
-
-
 
 // Serialize user
 passport.serializeUser(function (user, done) {
@@ -83,34 +86,27 @@ router.get(
   })
 );
 
-
-router.get('/login/success', async(req,res) => {
-
-  if(req.user){
+router.get('/login/success', async (req, res) => {
+  if (req.user) {
     res.status(200).json({
       message: "User Login",
       user: req.user
-    })
+    });
   } else {
     res.status(400).json({
       message: "Not Authorized"
-    })
+    });
   }
-})
-
-
+});
 
 router.get('/logout', (req, res, next) => {
-  req.logout( function(err){
-    if(err){
-      return next(err)
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
     }
     res.redirect("http://localhost:5173");
-  })
-})
-
-
-
+  });
+});
 
 // Add this route to handle profile updates
 router.post("/update-profile", async (req, res) => {
@@ -124,7 +120,33 @@ router.post("/update-profile", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+router.post("/tasks", async (req, res) => {
+  try {
+    const { task, id } = req.body; // Extract task and user ID from request body
 
+    // Validate task data (optional)
+
+    // Create a new task document
+    const newTask = await Task.create({ task, user: id }); // Store user ID along with the task
+    res.status(201).json(newTask);
+  } catch (error) {
+    console.error("Error submitting task:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+
+router.get("/tasks/:userId", async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    // Retrieve tasks associated with the user ID
+    const tasks = await Task.find({ user: userId });
+    res.json(tasks);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
 
 
 // Export the router

@@ -8,6 +8,7 @@ const passport = require('passport');
 const MongoStore = require('connect-mongo'); // Fix: Pass session to connect-mongo
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/DB');
+const taskRouter = require('./routes/Todo');
 
 const app = express();
 
@@ -45,6 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
+app.use('/task', taskRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

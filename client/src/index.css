@@ -431,6 +431,139 @@ section {
   box-shadow: -5px -5px 0px var(--dark);
 }
 
+
+.num_sec {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rem; /* Adjusted to pixels for responsiveness */
+  word-spacing: 2px;
+  font-size: 12px;
+}
+
+/* Adjust gap for smaller screens */
+@media screen and (max-width: 768px) {
+  .num_sec {
+    gap: 10px;
+  }
+  .num_sec{
+    justify-content: center;
+  }
+}
+
+/* Adjust gap for even smaller screens */
+@media screen and (max-width: 480px) {
+  .num_sec {
+    gap: 5px;
+  }
+}
+
+
+.num_sec p span {
+  background-color: #fbe5b8;
+  color: #191919;
+  padding: 0.05rem .5rem;
+  border-radius: 10rem;
+}
+
+
+
+/* Style for task container */
+.tasks_coll {
+  margin: 20px;
+}
+
+/* Style for task container */
+.tasks_coll {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for each task */
+.task_bar {
+  display: flex;
+  flex-direction: column; /* Change to column for responsiveness */
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  color: #191919;
+  /* width: 100%; Set initial width to 100% */
+}
+
+/* Style for buttons */
+.task_bar .check_button {
+  background-color: #281f19;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: .5rem;
+  border: 2px solid #191919;
+  border-radius: 5rem;
+}
+
+.task_bar .check_button:hover {
+  background-color: #45a049;
+}
+.task_bar .delete_button {
+  background-color: #fbe5b8;
+  color: #281f19;
+  border: none;
+  cursor: pointer;
+  padding: .5 rem;
+  border-radius: 3px;
+}
+
+.task_bar .delete_button:hover {
+  color: #ff4545;
+}
+
+/* Style for task text */
+.task_bar p {
+  margin: 0;
+}
+
+/* Style for task list item */
+.task_list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: 5px;
+  color: #191919;
+  max-width: 50rem;
+  background-color: #fbe5b8;
+  gap: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tasks_coll {
+    margin: 10px;
+  }
+
+  .task_bar {
+    flex-direction: row; /* Change to row for responsiveness */
+    align-items: center;
+    width: auto; /* Allow the width to be determined by content */
+  }
+
+  .task_list {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: auto; /* Allow the width to be determined by content */
+  }
+
+  .task_bar button {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+}
+
 /* Dashboard Section */
 
 .dash_bgbox {
@@ -693,7 +826,7 @@ section {
 
   border-radius: 50px;
   transition-duration: 0.3s;
-  background-color: rgb(255, 69, 69);
+  background-color: #ff4545;
   align-items: center;
 }
 
