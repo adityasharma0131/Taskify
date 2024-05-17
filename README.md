@@ -18,8 +18,11 @@ Taskify is a web application designed to manage tasks efficiently. It allows use
 
 
 ## Technologies Used
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 12676af3e4a377d4fb095a298f12280c30d53592
 <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" height="40" alt="chrome logo"  />
   <img width="12" />
