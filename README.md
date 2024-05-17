@@ -3,15 +3,19 @@
 ## Introduction
 Taskify is a web application designed to manage tasks efficiently. It allows users to create, update, and delete tasks, as well as authenticate via Google OAuth2.
 
-![Taskify Preview](/path/to/taskify-preview.png)
+![Taskify Preview](/client/public/images/image.png)
 
 ## Images
-- **Dashboard**: ![Dashboard Preview](/path/to/dashboard-preview.png)
-- **Login Page**: ![Login Page Preview](/path/to/login-page-preview.png)
-- **Profile Page**: ![Profile Page Preview](/path/to/profile-page-preview.png)
+-  ![image1](/client/public/images/image1.png)
+-  ![image2](/client/public/images/image2.png)
+-  ![image3](/client/public/images/image3.png)
+-  ![image4](/client/public/images/image4.png)
+-  ![image5](/client/public/images/image5.png)
+-  ![image6](/client/public/images/image6.png)
+-  ![image7](/client/public/images/image7.png)
+-  ![image8](/client/public/images/image8.png)
+-  ![image9](/client/public/images/image9.png)
 
-## Video
-Watch a demo video of Taskify [here](https://www.youtube.com/watch?v=your-video-id).
 
 ## Technologies Used
 - **Frontend**: React.js

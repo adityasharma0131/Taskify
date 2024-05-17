@@ -155,7 +155,7 @@ const Dashboard = () => {
                         <FaSquare className="FaSquare" />
                       )}
                     </button>
-                    <p>{task.task}</p>
+                    <p style={{ textDecoration: task.status === "true" ? "line-through" : "none" }}>{task.task}</p>
                     <button
                       className="deleteButton"
                       onClick={() => deleteTask(task._id)}
@@ -174,4 +174,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-

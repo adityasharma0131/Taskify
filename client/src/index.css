@@ -265,6 +265,7 @@ section {
   width: 100%;
   text-align: center;
   overflow: hidden;
+  margin-bottom: 10rem;
 }
 
 .marquee h3 {
