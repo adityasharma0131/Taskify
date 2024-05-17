@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   const getUser = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/login/success", {
+      const response = await axios.get("taskify-gamma-opal.vercel.app/login/success", {
         withCredentials: true,
       });
       setUserData(response.data.user);
@@ -27,7 +27,7 @@ const Dashboard = () => {
 
   const getTasks = async (userId) => {
     try {
-      const response = await axios.get(`http://localhost:3000/tasks/${userId}`);
+      const response = await axios.get(`taskify-gamma-opal.vercel.app/tasks/${userId}`);
       console.log("Fetched tasks:", response.data); // Log fetched tasks
       setTasks(response.data);
     } catch (error) {
@@ -45,7 +45,7 @@ const Dashboard = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post("http://localhost:3000/tasks", {
+      const response = await axios.post("taskify-gamma-opal.vercel.app/tasks", {
         task: inputValue,
         id: userData._id,
       });
@@ -60,7 +60,7 @@ const Dashboard = () => {
   const toggleTaskStatus = async (taskId, currentStatus) => {
     try {
       const newStatus = currentStatus === "true" ? "false" : "true";
-      await axios.post("http://localhost:3000/tasks/update-status", {
+      await axios.post("taskify-gamma-opal.vercel.app/tasks/update-status", {
         taskId,
         newStatus,
       });
@@ -72,7 +72,7 @@ const Dashboard = () => {
 
   const deleteTask = async (taskId) => {
     try {
-      await axios.delete(`http://localhost:3000/tasks/${taskId}`);
+      await axios.delete(`taskify-gamma-opal.vercel.app/tasks/${taskId}`);
       getTasks(userData._id); // Refresh tasks after deletion
     } catch (error) {
       console.error("Error deleting task:", error);

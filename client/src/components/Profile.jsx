@@ -17,7 +17,7 @@ const Profile = () => {
 
   const getUser = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/login/success", {
+      const response = await axios.get("taskify-gamma-opal.vercel.app/login/success", {
         withCredentials: true,
       });
       setUserData(response.data.user);
@@ -33,7 +33,7 @@ const Profile = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/update-profile", userData, {
+      await axios.post("taskify-gamma-opal.vercel.app/update-profile", userData, {
         withCredentials: true,
       });
       // Navigate back to /Dashboard upon successful update
