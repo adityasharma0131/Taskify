@@ -8,7 +8,7 @@ const UserHeader = () => {
 
   const loginWithGoogle = () => {
 
-    window.open('http://localhost:3000/auth/google/callback', '_self');
+    window.open('https://taskify-gamma-opal.vercel.app/auth/google/callback', '_self');
   }
 
   return (

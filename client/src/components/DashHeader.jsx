@@ -8,7 +8,7 @@ const UserHeader = () => {
 
   const getUser = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/login/success", {
+      const response = await axios.get("https://taskify-gamma-opal.vercel.app/login/success", {
         withCredentials: true,
       });
       setUserData(response.data.user);
@@ -22,7 +22,7 @@ const UserHeader = () => {
   }, []); // Passing an empty array as the second argument to useEffect ensures that it only runs once after the initial render
 
   const logout = () => {
-    window.open("http://localhost:3000/logout", "_self");
+    window.open("https://taskify-gamma-opal.vercel.app/logout", "_self");
   };
 
   return (
