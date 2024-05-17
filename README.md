@@ -6,19 +6,19 @@ Taskify is a web application designed to manage tasks efficiently. It allows use
 ![Taskify Preview](/client/public/images/image.png)
 
 ## Images
--  ![image1](/client/public/images/image1.png)
--  ![image2](/client/public/images/image2.png)
--  ![image3](/client/public/images/image3.png)
--  ![image4](/client/public/images/image4.png)
--  ![image5](/client/public/images/image5.png)
--  ![image6](/client/public/images/image6.png)
--  ![image7](/client/public/images/image7.png)
--  ![image8](/client/public/images/image8.png)
--  ![image9](/client/public/images/image9.png)
+![image1](/client/public/images/image1.png)
+![image2](/client/public/images/image2.png)
+![image3](/client/public/images/image3.png)
+![image4](/client/public/images/image4.png)
+![image5](/client/public/images/image5.png)
+![image6](/client/public/images/image6.png)
+![image7](/client/public/images/image7.png)
+![image8](/client/public/images/image8.png)
+![image9](/client/public/images/image9.png)
 
 
 ## Technologies Used
- - <div align="left">
+ <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" height="40" alt="chrome logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo"  />
