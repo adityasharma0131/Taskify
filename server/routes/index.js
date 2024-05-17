@@ -25,7 +25,7 @@ passport.use(
     {
       clientID: "652686754259-567cljdto8o961jl4k7l8bvataogq0cs.apps.googleusercontent.com",
       clientSecret: "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",
-      callbackURL: "http://taskify-gamma-opal.vercel.app/auth/google/callback",
+      callbackURL: "/auth/google/callback",
       scope: ["profile", "email"]
     },
     async function (accessToken, refreshToken, profile, done) {
@@ -81,8 +81,8 @@ router.get(
 router.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "https://taskify-ic9w.vercel.app/error",
-    successRedirect: "https://taskify-ic9w.vercel.app/Dashboard",
+    failureRedirect: "http://localhost:5173/error",
+    successRedirect: "http://localhost:5173/Dashboard",
   })
 );
 
@@ -104,7 +104,7 @@ router.get('/logout', (req, res, next) => {
     if (err) {
       return next(err);
     }
-    res.redirect("https://taskify-ic9w.vercel.app");
+    res.redirect("http://localhost:5173");
   });
 });
 
