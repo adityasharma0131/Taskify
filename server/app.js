@@ -33,7 +33,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(cors({
-  origin: 'taskify-ic9w.vercel.app',
+  origin: 'https://taskify-ic9w.vercel.app',
   methods: 'GET, POST, PUT, DELETE',
   credentials: true
 }));

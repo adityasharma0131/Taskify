@@ -81,8 +81,8 @@ router.get(
 router.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "taskify-ic9w.vercel.app/error",
-    successRedirect: "taskify-ic9w.vercel.app/Dashboard",
+    failureRedirect: "https://taskify-ic9w.vercel.app/error",
+    successRedirect: "https://taskify-ic9w.vercel.app/Dashboard",
   })
 );
 
@@ -104,7 +104,7 @@ router.get('/logout', (req, res, next) => {
     if (err) {
       return next(err);
     }
-    res.redirect("taskify-ic9w.vercel.app");
+    res.redirect("https://taskify-ic9w.vercel.app");
   });
 });
 
