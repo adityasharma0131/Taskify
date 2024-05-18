@@ -55,6 +55,12 @@ passport.use(
   )
 );
 
+
+router.get("/", function (req, res) {
+  res.send("Wiki home page");
+});
+
+
 // Serialize user
 passport.serializeUser(function (user, done) {
   done(null, user.id);
