@@ -8,7 +8,7 @@ const UserHeader = () => {
 
   const loginWithGoogle = () => {
 
-    window.open('https://taskify-five-self.vercel.app/auth/google/callback', '_self');
+    window.open('http://localhost:3000/auth/google/callback', '_self');
   }
 
   return (

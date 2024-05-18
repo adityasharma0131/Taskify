@@ -55,12 +55,6 @@ passport.use(
   )
 );
 
-
-router.get("/", function (req, res) {
-  res.send("Wiki home page");
-});
-
-
 // Serialize user
 passport.serializeUser(function (user, done) {
   done(null, user.id);
@@ -87,8 +81,8 @@ router.get(
 router.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "https://taskify-zsfw.vercel.app/error",
-    successRedirect: "https://taskify-zsfw.vercel.app/Dashboard",
+    failureRedirect: "http://localhost:5173/error",
+    successRedirect: "http://localhost:5173/Dashboard",
   })
 );
 
@@ -110,7 +104,7 @@ router.get('/logout', (req, res, next) => {
     if (err) {
       return next(err);
     }
-    res.redirect("https://taskify-zsfw.vercel.app");
+    res.redirect("http://localhost:5173");
   });
 });
 
