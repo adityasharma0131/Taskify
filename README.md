@@ -104,8 +104,8 @@ The frontend of the Taskify application is built using React.js. It provides a u
 ## Installation and Usage
 1. **Clone the Repository**: `git clone <repository-url>`
 2. **Install Dependencies**: `npm install`
-3. **Start Backend Server**: `npm start`
-4. **Start Frontend Server**: `npm start` (in the `client` directory)
+3. **Start Backend Server**: `npm nodemon`
+4. **Start Frontend Server**: `npm run dev` (in the `client` directory)
 5. **Access the Application**: Open the browser and go to `http://localhost:3000`
 
 ## Conclusion
